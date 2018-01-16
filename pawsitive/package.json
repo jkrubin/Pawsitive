@@ -17,6 +17,7 @@
     "pg-promise": "^7.3.3",
     "pug": "2.0.0-beta11",
     "sequelize": "^4.31.2",
+    "sequelize-cli": "^3.2.0",
     "serve-favicon": "~2.4.5"
   }
 }
