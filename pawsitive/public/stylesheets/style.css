@@ -1,32 +1,38 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: lightgray
-/*  background-image: url("../images/login_background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;*/
 }
 
 a {
   color: #00B7FF;
 }
 
+#loginBackground {
+	background-image: url("/images/login_background.jpg");
+	background-repeat: none;
+	background-size: cover;
+	background-position: center;
+}
+
+
 #logo {
 	background-color: white;
 	width: auto;
 	padding: 15px;
 	width: 280px;
+	opacity: 0.95;
 }
 
 #login {
 	padding: 50px;
 	width: 80%;
 	left: 50%;
-	top: 50%;
+	top: 70%;
 	position: absolute;
 	transform: translateX(-50%) translateY(-50%);
 	background-color: white;
+	opacity: 0.95;
 }
 
 #login div.row {
