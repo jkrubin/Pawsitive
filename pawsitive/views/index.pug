@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	#logo
+		h1 Walk with Me
+		p &copy; Copyright Pawsitive Pet Services 
+	br
+	#login.container
+		div.row
+			input.col-sm-12(type="text" placeholder="Email")
+			input.col-sm-12(type="text" placeholder="Password")
+			div.row.center
+				input.col-sm-3.center(type="checkbox")
+				p.col-sm-7.center Remember Login
+			button.col-sm-12.btn.btn-primary(onclick="loginSubmit()") Login
+			div.row.center
+				h5.col-sm-6.text-right Register
+				h5.col-sm-6.text-left Forgot Password?	
+
