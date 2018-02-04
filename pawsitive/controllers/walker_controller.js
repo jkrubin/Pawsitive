@@ -15,20 +15,15 @@ exports.walker_create_post = function(req, res) {
 	console.log("this is the req body from controller: ");
 	console.log(req.body);
 
-	var data = Object.keys(req.body)
+	let data = Object.keys(req.body);
 
-	for(var i =0; i<data.length; i++){
-		var str = ""
-		str += "this is key" + i + ": " + data[i];
-		console.log(str);
-		str = "this is the value " + data[data[i]]
-		console.log(str);
-	}
+	data = JSON.parse(data);
 
-	//var keys = Object.keys(obj);
-	//for (var i =0; i < keys.length; i++){
-	//	console.log(obj[keys[i]]);
-	//}
+	let username = data["username"],
+		password = data["password"];
+
+	console.log("username: "+username);
+	console.log("password: "+password); 
 
 	res.send("n/a");
 };
