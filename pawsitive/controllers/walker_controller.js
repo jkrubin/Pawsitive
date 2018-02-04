@@ -12,12 +12,26 @@ exports.walker_create_get = function(req, res) {
 };
 
 exports.walker_create_post = function(req, res) {
-	console.log("this is the req body from controller: ");
-	console.log(req.body);
+	//console.log("this is the req body from controller: ");
+	//console.log(req.body);
 
 	let data = Object.keys(req.body);
 
 	data = JSON.parse(data);
+
+	res.send("n/a");
+};
+
+exports.walker_authenticate_post = function(req, res) {
+	let keys = Object.keys(req.body);
+
+	data = JSON.parse(keys);
+
+	for (var key in data) {
+		var val = data[key];
+		var str = "k: " + key + " v: " + val;
+		console.log(str)
+	}
 
 	let username = data["username"],
 		password = data["password"];
