@@ -23,3 +23,7 @@ function loginSubmit(){
 	}
 
 }
+
+// function registerSubmit(){
+
+// }

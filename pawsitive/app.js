@@ -1,12 +1,13 @@
 var express = require('express'),
-	path = require('path'),
-	favicon = require('serve-favicon'),
-	logger = require('morgan'),
-	cookieParser = require('cookie-parser'),
-	bodyParser = require('body-parser');
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser');
 
 var index = require('./routes/index'),
-	users = require('./routes/users');
+    users = require('./routes/users'),
+    register = require('./routes/register');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/login', index);
+app.use('/register', register);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
