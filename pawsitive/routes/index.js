@@ -9,9 +9,13 @@ router.get('/', function(req, res, next) {
   console.log("rendering homepage");
 });
 
-router.get('/login', walker_controller.walker_create_get);
+router.get('/register', function(req, res, next) {
 
-router.post('/login', walker_controller.walker_authenticate_post);
+  res.render('register', {title: "Register"});
+  console.log("rendering register");
+  
+});
 
+router.post('/register', walker_controller.walker_create_post);
 
 module.exports = router;
