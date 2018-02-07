@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', walker_controller.walker_create_get);
 
-router.post('/login', walker_controller.walker_create_post);
+router.post('/login', walker_controller.walker_authenticate_post);
 
 
 module.exports = router;
