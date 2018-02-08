@@ -8,6 +8,6 @@ router.get('/', function(req, res, next) {
   
 });
 
-router.post('/', walker_controller.walker_authenticate_post);
+router.post('/', walker_controller.walker_create_post);
 
 module.exports = router;

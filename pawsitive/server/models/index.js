@@ -14,6 +14,17 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+});
+
+module.exports['walker'] = sequelize.import('./walker');
+
 fs
   .readdirSync(__dirname)
   .filter(file => {

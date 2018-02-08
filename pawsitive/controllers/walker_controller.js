@@ -1,5 +1,6 @@
-var user = require('./../server/config/config');
+//var user = require('./../server/models/walker');
 var express = require('express');
+
 
 
 exports.walker_list = function(req, res) {
@@ -15,7 +16,18 @@ exports.walker_create_post = function(req, res) {
 	console.log("this is the req body from controller: ");
 	console.log(req.body);
 
+	let keys = Object.keys(req.body);
+	data = JSON.parse(keys);
+
 	/*
+	user.create({
+		userName: data["username"],
+		password: data["password"]
+	}).then(function() {
+		res.redirect('/');
+	});
+
+	
 	let keys = Object.keys(req.body);
 
 	data = JSON.parse(keys);

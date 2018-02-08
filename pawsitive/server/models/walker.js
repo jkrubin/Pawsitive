@@ -5,9 +5,11 @@ const Walker = sequelize.define('walker', {
   password: {
     type: Sequelize.STRING
   }
+  /*
   lastUpdated {
     type: Sequelize.DATE
   }
+  */
 });
 
 Walker.sync({force: true}).then(() => {
