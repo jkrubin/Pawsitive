@@ -14,24 +14,28 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+//module.exports['walker'] = sequelize.import('./walker');
+/*
 sequelize
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
   })
   .catch(err => {
-    console.error('Unable to connect to the database:', err);
+    console.log('Unable to connect to the database:', err);
 });
-
-module.exports['walker'] = sequelize.import('./walker');
-
+*/
 fs
   .readdirSync(__dirname)
   .filter(file => {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
+
+    //console.log("dir is" + __dirname + ", file is: " + file);
     var model = sequelize['import'](path.join(__dirname, file));
+    //console.log("model is: " + model);
+    //console.log("model name: " + model.name);
     db[model.name] = model;
   });
 
