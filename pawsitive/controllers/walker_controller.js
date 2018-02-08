@@ -16,18 +16,19 @@ exports.walker_create_post = function(req, res) {
 	console.log("this is the req body from controller: ");
 	console.log(req.body);
 
-	//let keys = Object.keys(req.body);
-	//data = JSON.parse(keys);
+	let keys = Object.keys(req.body);
+	data = JSON.parse(keys);
 
 	
-	models.Walker.create({
-		userName: "one",
-		password: "two"
-		//lastUpdated: sequelize.literal('CURRENT_TIMESTAMP')
+	models.walker.create({
+		userName: data["username"],
+		password: data["password"]
 	}).then(function() {
 		res.redirect('/');
 	});
-/*
+	
+
+	/*
 	let keys = Object.keys(req.body);
 
 	data = JSON.parse(keys);
