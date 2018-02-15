@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack --watch"
+    "start": "node server.js",
+    "dev": "webpack && npm start"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -33,9 +34,5 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
     "webpack": "^3.11.0"
-  },
-  "scripts": {
-    "start": "node server.js",
-    "dev": "webpack && npm start"
   }
 }
