@@ -17,8 +17,18 @@
     "pg-promise": "^7.3.3",
     "pug": "2.0.0-beta11",
     "pug-bootstrap": "0.0.15",
-    "sequelize": "^4.31.2",
+    "sequelize": "^4.33.3",
     "sequelize-cli": "^3.2.0",
-    "serve-favicon": "^2.4.5"
+    "serve-favicon": "^2.4.5",
+    "vue": "^2.5.13",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "pug": "^2.0.0-beta11",
+    "pug-loader": "^2.3.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.11.0"
   }
 }
