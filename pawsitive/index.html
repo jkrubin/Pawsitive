@@ -1,0 +1,22 @@
+<script type="text/javascript" src="dist/bundle.js"></script>
+<link rel='stylesheet' href='dist/style.css'>
+<template lang="pug">
+	extends layout
+
+	block content
+		#login.container
+			div.row
+				h1 Walk with Me
+				p &copy; Copyright Pawsitive Pet Services 
+			div.row
+				input.col-sm-12(type="text" placeholder="Email")
+				input.col-sm-12(type="text" placeholder="Password")
+				div.row.center
+					input.col-sm-3.center(type="checkbox")
+					p.col-sm-7.center Remember Login
+				button.col-sm-12.btn.btn-primary(onclick="loginSubmit()") Login
+				div.row.center
+					h5.col-sm-6.text-right 
+						a(href="/register") Register
+				h5.col-sm-6.text-left Forgot Password?	
+</template>
