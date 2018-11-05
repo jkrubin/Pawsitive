@@ -21,13 +21,13 @@
 				<md-table-head>Dog Address</md-table-head>
 				<md-table-head>Dog Info</md-table-head>
 			</md-table-row>
-			<md-table-row v-for="(dog, index) in morningDogs[0]" :index="index" :class="{ picked_up: morningDogs[index]['picked_up'] }" :class="{ dropped_off: morningDogs[index]['dropped_off'] }">
+			<md-table-row v-for="(dog, index) in morningDogs[0]" :index="index" :class="{ picked_up: morningDogs[0][index]['picked_up'], dropped_off: morningDogs[0][index]['dropped_off'] }">
 				<md-table-cell>{{ dog.name }}</md-table-cell>
 				<md-table-cell>
-					<md-input type="checkbox" v-model="morningDogs[index]['picked_up']">Pickup</md-input>
+					<input v-if="morningDogs[0][index]['dropped_off'] == false" type="checkbox" v-model="morningDogs[0][index]['picked_up']"></input>
 				</md-table-cell>
 				<md-table-cell>
-					<md-input type="checkbox" v-model="morningDogs[index]['dropped_off']">Drop Off</md-input>
+					<input v-if="morningDogs[0][index]['picked_up'] == true"  type="checkbox" v-model="morningDogs[0][index]['dropped_off']"></input>
 				</md-table-cell>
 				<md-table-cell class="pin_icon">{{ dog.address }}</md-table-cell>
 				<md-table-cell class="about_icon"></md-table-cell>
@@ -45,14 +45,13 @@
 				<md-table-head>Dog Address</md-table-head>
 				<md-table-head>Dog Info</md-table-head>
 			</md-table-row>
-			<md-table-row v-for="(dog, index) in afternoonDogs[0]" :index="index" 
-			:class="{ picked_up: afternoonDogs[index]['picked_up'] }" :class="{ dropped_off: afternoonDogs[index]['dropped_off'] }">
+			<md-table-row v-for="(dog, index) in afternoonDogs[0]" :index="index" :class="{ picked_up: afternoonDogs[0][index]['picked_up'], dropped_off: afternoonDogs[0][index]['dropped_off'] }">
 				<md-table-cell>{{ dog.name }}</md-table-cell>
 				<md-table-cell>
-					<md-input type="checkbox" v-model="afternoonDogs[index]['picked_up']">Pickup</md-input>
+					<input v-if="afternoonDogs[0][index]['dropped_off'] == false" type="checkbox" v-model="afternoonDogs[0][index]['picked_up']"></input>
 				</md-table-cell>
 				<md-table-cell>
-					<md-input type="checkbox" v-model="afternoonDogs[index]['dropped_off']">Drop Off</md-input>
+					<input v-if="afternoonDogs[0][index]['picked_up'] == true" type="checkbox" v-model="afternoonDogs[0][index]['dropped_off']"></input>
 				</md-table-cell>
 				<md-table-cell class="pin_icon">{{ dog.address }}</md-table-cell>
 				<md-table-cell class="about_icon"></md-table-cell>
@@ -138,6 +137,12 @@
 
 				return arr;
 			}
+			// checkStatus(am_pm, index, pickup_dropoff){
+			// 	switch (am_pm){
+			// 		case "morning":
+			// 		pickup_dropoff == pickup 
+			// 	}
+			// }
 		},
 		data() {
 			return {
@@ -345,9 +350,9 @@
 		background-color: white;
 	}
 	.picked_up {
-		background-color: "#FFCC00" !important;
+		background-color: #FFCC00 !important;
 	}
 	.dropped_off {
-		background-color: "#0080ff" !important;
+		background-color: #00a0ff !important;
 	}
 </style>
