@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <router-view></router-view>
-    </main>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -17,8 +11,15 @@ export default {
 </script>
 
 <style>
-body {
+html {
+  background-color: rgba(50,205,50,0.6);
+}
+
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #app {
@@ -26,6 +27,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  height: 100%;
+  width: 100%;
+}
+
+.innerPage {
+  padding-bottom: 20px;
 }
 
 main {
