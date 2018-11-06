@@ -173,11 +173,8 @@
 				return days;
 			},
 			isCurrentDay(day){
-				console.log("day:"+day);
-				let that = this.currDate;
-				console.log("today:"+that);
-				let boolean = that == day ? true : false;
-				console.log(boolean);
+				let boolean = this.currDate.toLocaleDateString() == day.toLocaleDateString() ? true : false;
+
 				return boolean;
 			}
 		}
@@ -185,29 +182,42 @@
 </script>
 
 <style>
+	* {
+		box-sizing: border-box;
+	}
 	.dogCount {
 		border-radius: 50%;
 		text-align: center;
 		margin: auto;
 		width: 20px;
 	}
-	.dogCount.hasDogs,
-	.currentDay {
+	.dogCount.hasDogs {
 		background-color: #FFCC00;
+	}
+	.currentDay {
+		background-color: #00a0ff;
 	}
 	#dayContainer {
 		display: block;
 		position: relative;
 	}
 	.dayInnerContainer {
-		background-color: white;
+		background-color: rgba(50,205,50,0.6);
 		display: inline-block;
 		width: 20%;
 		text-align: center;
 	}
-	.dayInnerContainer:nth-of-type(odd) {
+	.dayInnerContainer:nth-of-type(even),
+	.dayInnerContainer:nth-of-type(even) .dayTxt,
+	.dayInnerContainer:nth-of-type(even) .dayNum  {
+		background-color: white;
+	}
+	.dayInnerContainer:nth-of-type(odd),
+	.dayInnerContainer:nth-of-type(odd) .dayTxt,
+	.dayInnerContainer:nth-of-type(odd) .dayNum {
 		background-color: #f6f6f6;
 	}
+
 	#monthSelected select {
 		display: block;
 		margin: auto;
