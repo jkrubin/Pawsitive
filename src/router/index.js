@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Login from '@/views/Login'
 import DailySchedule from '@/views/DailySchedule'
 import WeeklySchedule from '@/views/WeeklySchedule'
-// import MonthlySchedule from '@/views/MonthlySchedule'
+import MonthlySchedule from '@/views/MonthlySchedule'
 import Clients from '@/views/Clients'
 import Billing from '@/views/Billing'
 import Settings from '@/views/Settings'
@@ -30,11 +30,11 @@ export default new Router({
       name: 'WeeklySchedule',
       component: WeeklySchedule
     },
-    // {
-    //   path: '/schedule/daily',
-    //   name: 'MonthlySchedule',
-    //   component: MonthlySchedule
-    // },
+    {
+      path: '/schedule/monthly',
+      name: 'MonthlySchedule',
+      component: MonthlySchedule
+    },
     {
       path: '/clients',
       name: 'Clients',

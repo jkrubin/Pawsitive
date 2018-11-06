@@ -2,7 +2,7 @@
 	<div class="innerPage">
 		<!-- <h1 id="pageTitle">Schedule Page</h1> -->
 		<div id="daySelected">
-			<h3>{{ returnDayOfWeek() }}</h3>
+			<h3>{{ getDayOfWeek() }}</h3>
 			<md-input type="date" name="date" :value="daySelected"></md-input>
 		</div>
 		<ScheduleNav></ScheduleNav>
@@ -95,7 +95,7 @@
 				// console.log(dateStr);
 				return dateStr[2]+"-"+dateStr[0]+"-"+dateStr[1];
 			},
-			returnDayOfWeek(){
+			getDayOfWeek(){
 				switch (this.getDay()){
 					case 0:
 					return "Sunday"

@@ -2,8 +2,8 @@
 	<div class="innerPage">
 		<br>
 		<div id="daySelected">
-			<input type="date" name="date" :value="getDateRange()[0]"></input>
-			<input type="date" name="date" :value="getDateRange()[4]"></input>
+			<h3>{{ getDayOfWeek() }}</h3>
+			<md-input type="date" name="date" :value="daySelected"></md-input>
 		</div>
 		<br>
 		<ScheduleNav></ScheduleNav>
@@ -53,9 +53,15 @@
 <script>
 	name: "WeeklySchedule"
 	import ScheduleNav from "../components/ScheduleNav"
+	import Nav from "../components/Nav"
 	export default {
 		components: {
 			"ScheduleNav": ScheduleNav
+		},
+		data(){
+			return {
+				daySelected: this.formatDate(this.getDate())
+			}
 		},
 		methods: {
 			getNewDate(offset){
@@ -136,6 +142,7 @@
 			},
 			getDayOfWeek(date){
 				let str = "";
+				date = date === undefined ? this.getDate() : date; 
 				switch(date.getDay()){
 					case 0:
 					str = "Sunday";
