@@ -5,11 +5,7 @@
 			<h3>{{ returnDayOfWeek() }}</h3>
 			<md-input type="date" name="date" :value="daySelected"></md-input>
 		</div>
-		<div id="scheduleButtons">
-			<button>Daily</button>
-			<button>Weekly</button>
-			<button>Monthly</button>
-		</div>
+		<ScheduleNav></ScheduleNav>
 		<md-table>
 			<md-table-toolbar>
 				<h2>Morning - {{ morningDogs[0].length }} Dogs</h2>
@@ -33,7 +29,7 @@
 				<md-table-cell class="about_icon"></md-table-cell>
 			</md-table-row>
 		</md-table>
-		<br><br>
+		<!-- <br><br> -->
 		<md-table>
 			<md-table-toolbar>
 				<h2>Afternoon - {{ afternoonDogs[0].length }} Dogs</h2>
@@ -63,10 +59,12 @@
 
 <script>
 	import Nav from "../components/Nav.vue"
+	import ScheduleNav from "../components/ScheduleNav.vue"
 	export default {
-		name: "Schedule",
+		name: "DailySchedule",
 		components: {
-			"Nav": Nav
+			"Nav": Nav,
+			"ScheduleNav": ScheduleNav
 		},
 		beforeMount(){
 			this.morningDogs = []
@@ -317,15 +315,6 @@
 </script>
 
 <style>
-	#scheduleButtons {
-		margin: auto;
-		display: flex;
-		padding: 0 25%;
-	}
-	#scheduleButtons {
-		justify-content: space-between;
-		margin-bottom: 25px;
-	}
 	#pageTitle {
 		text-align: center;
 	}

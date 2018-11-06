@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Vuex from 'vuex'
 import Login from '@/views/Login'
-import Schedule from '@/views/Schedule'
+import DailySchedule from '@/views/DailySchedule'
+import WeeklySchedule from '@/views/WeeklySchedule'
+// import MonthlySchedule from '@/views/MonthlySchedule'
 import Clients from '@/views/Clients'
 import Billing from '@/views/Billing'
 import Settings from '@/views/Settings'
@@ -19,10 +21,20 @@ export default new Router({
       component: Login
     },
     {
-      path: '/schedule',
-      name: 'Schedule',
-      component: Schedule
+      path: '/schedule/daily',
+      name: 'DailySchedule',
+      component: DailySchedule
     },
+    {
+      path: '/schedule/weekly',
+      name: 'WeeklySchedule',
+      component: WeeklySchedule
+    },
+    // {
+    //   path: '/schedule/daily',
+    //   name: 'MonthlySchedule',
+    //   component: MonthlySchedule
+    // },
     {
       path: '/clients',
       name: 'Clients',
