@@ -72,7 +72,7 @@
 				}
 			},
 			getDogCountPerDay(day){
-				return this.getDogCountByDay(this.$store.getters.getMorningDogs, this.getDaytoIndex(this.getDayOfWeek(day)));
+				return this.getDogCountByDay(this.$store.getters.getAllDogs, this.getDaytoIndex(this.getDayOfWeek(day)));
 			},
 			getDogCountByDay(dogArr, dayInt){
 				let count = 0;
@@ -213,7 +213,7 @@
 	.dayInnerContainer {
 		background-color: rgba(50,205,50,0.6);
 		display: inline-block;
-		width: 20%;
+		width: calc(100%/7);
 		text-align: center;
 	}
 	.dayInnerContainer:nth-of-type(even),
@@ -232,6 +232,8 @@
 		margin: auto;
 		width: 100%;
 		text-align: center;
+		background-color: #FFCC00;
+		height: 56px;
 	}
 	#monthSelected select option {
 		text-align: center;

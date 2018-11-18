@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div id="dogContainer">
-			<h3 class="timeHeader">Morning</h3>
+			<h2 class="timeHeader">Morning</h2>
 			<div>
 				<div v-for="index in 5" :key="index" class="dogInnerContainer">
 					<div id="morningDogs" class="dogBoxContainer" :class="{ currentDate: isCurrentDate(index-1) }">
@@ -29,7 +29,7 @@
 					</div>
 				</div>
 			</div>
-			<h3 class="timeHeader">Afternoon</h3>
+			<h2 class="timeHeader">Afternoon</h2>
 			<div>
 				<div v-for="index in 5" :key="index" class="dogInnerContainer">
 					<div id="afternoonDogs" class="dogBoxContainer" :class="{ currentDate: isCurrentDate(index-1) }">
@@ -230,10 +230,12 @@
 		color: white;
 		background-color: white;
 	}
-	h3.timeHeader {
+	.timeHeader {
 		text-align: center;
 		margin: 0 auto;
 		background-color: #FFCC00;
+		min-height: 56px;
+		line-height: 56px;
 	}
 	#daySelected {
 		display: flex;
