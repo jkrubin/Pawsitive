@@ -1,8 +1,7 @@
 <template>
 	<div class="innerPage">
-		<!-- <h1 id="pageTitle">Schedule Page</h1> -->
 		<div id="daySelected">
-			<h3>{{ getDayOfWeek() }}</h3>
+			<h3>{{ day }}</h3>
 			<md-input type="date" name="date" :value="daySelected"></md-input>
 		</div>
 		<ScheduleNav></ScheduleNav>
@@ -53,13 +52,15 @@
 				<md-table-cell class="about_icon"></md-table-cell>
 			</md-table-row>
 		</md-table>
-		<Nav></Nav>
+		<Nav menu='schedule'></Nav>
 	</div>
 </template>
 
 <script>
+	import DM from "../datemodule.js"
 	import Nav from "../components/Nav.vue"
 	import ScheduleNav from "../components/ScheduleNav.vue"
+
 	export default {
 		name: "DailySchedule",
 		components: {
@@ -73,53 +74,6 @@
 			this.afternoonDogs.push( this.filterDogs(2) )
 		},
 		methods: {
-			getDate(){
-				let date = new Date();
-				return date;
-			},
-			getDay(){
-				return this.getDate().getDay();
-			},
-			formatDate(){
-				let dateStr = this.getDate().toLocaleDateString();
-
-				dateStr = dateStr.split("/");
-
-				// Loop Through and Prefix with 0
-				for (var i = 0; i < dateStr.length; i++) {
-					if (dateStr[i].length <= 1){
-						dateStr[i] = "0"+dateStr[i];
-					}
-				}
-
-				// console.log(dateStr);
-				return dateStr[2]+"-"+dateStr[0]+"-"+dateStr[1];
-			},
-			getDayOfWeek(){
-				switch (this.getDay()){
-					case 0:
-					return "Sunday"
-					break
-					case 1:
-					return "Monday"
-					break
-					case 2:
-					return "Tuesday"
-					break
-					case 3:
-					return "Wednesday"
-					break
-					case 4:
-					return "Thursday"
-					break
-					case 5:
-					return "Friday"
-					break
-					case 6:
-					return "Saturday"
-					break
-				}
-			},
 			filterDogs(am_pm){
 				let arr = [],
 					dogs = this.dogs;
@@ -135,16 +89,12 @@
 
 				return arr;
 			}
-			// checkStatus(am_pm, index, pickup_dropoff){
-			// 	switch (am_pm){
-			// 		case "morning":
-			// 		pickup_dropoff == pickup 
-			// 	}
-			// }
 		},
 		data() {
 			return {
-				daySelected: this.formatDate(),
+				date: new Date(),
+				day: DM.getDayOfWeek(this.date).substring(0, 3).toUpperCase(),
+				daySelected: DM.formatDate(),
 				morningDogs: [],
 				afternoonDogs: [],
 				dogs: [

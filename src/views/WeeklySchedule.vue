@@ -1,11 +1,9 @@
 <template>
 	<div class="innerPage">
-		<br>
 		<div id="daySelected">
 			<h3>{{ getDayOfWeek() }}</h3>
 			<md-input type="date" name="date" :value="daySelected"></md-input>
 		</div>
-		<br>
 		<ScheduleNav></ScheduleNav>
 		<div id="timeBoxContainer">
 			<div v-for="(date, index) in getDateRange()" class="timeBoxInnerContainer">
@@ -18,18 +16,20 @@
 		</div>
 		<div id="dogContainer">
 			<div v-for="index in 5" :key="index" class="dogInnerContainer">
+				<h3>Mrn</h3>
 				<div id="morningDogs" class="dogBoxContainer" :class="{ currentDate: isCurrentDate(index-1) }">
 					<div class="dogBox">
-						<h3>{{ getDogCountByDay($store.getters.getMorningDogs, index) }} M</h3>
+						<h3>{{ getDogCountByDay($store.getters.getMorningDogs, index) }}</h3>
 						<hr>
 						<div v-for="dog in $store.getters.getMorningDogs">
 							<h4>{{ filterDogsByDay(dog, index) }}</h4>
 						</div>
 					</div>
 				</div>
+				<h3>Aft</h3>
 				<div id="afternoonDogs" class="dogBoxContainer" :class="{ currentDate: isCurrentDate(index-1) }">
 					<div class="dogBox">
-						<h3>{{ getDogCountByDay($store.getters.getAfternoonDogs, index) }} A</h3>
+						<h3>{{ getDogCountByDay($store.getters.getAfternoonDogs, index) }}</h3>
 						<hr>
 						<div v-for="dog in $store.getters.getAfternoonDogs">
 							<h4>{{ filterDogsByDay(dog, index) }}</h4>
@@ -38,15 +38,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div id="afternoonDogs" class="dogBoxContainer">
-			<div class="dogBox">
-				<h3>{{ $store.getters.getAfternoonDogs.length }}</h3>
-				<hr>
-				<div v-for="(dog, index) in $store.getters.getAfternoonDogs">
-					<h3>{{ filterDogsByDay(dog, index) }}</h3>
-				</div>
-			</div>
-		</div> -->
+		<Nav menu='schedule'></Nav>
 	</div>
 </template>
 
@@ -56,7 +48,8 @@
 	import Nav from "../components/Nav"
 	export default {
 		components: {
-			"ScheduleNav": ScheduleNav
+			"ScheduleNav": ScheduleNav,
+			"Nav": Nav
 		},
 		data(){
 			return {

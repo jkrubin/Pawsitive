@@ -21,11 +21,13 @@ export const store = new Vuex.Store({
         zip: 94114,
         door_code: ["1991"],
         repeating_schedule: [1,2,3,4,5],
-        am_pm: 0,
+        am_pm: 1,
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },
       {
         name: "Rochi",
@@ -41,7 +43,9 @@ export const store = new Vuex.Store({
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },
       {
         name: "Han",
@@ -57,7 +61,9 @@ export const store = new Vuex.Store({
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },
       {
         name: "Leia",
@@ -73,7 +79,9 @@ export const store = new Vuex.Store({
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },
       {
         name: "Miski",
@@ -85,11 +93,13 @@ export const store = new Vuex.Store({
         zip: 94131,
         door_code: ["1991"],
         repeating_schedule: [1,2,3,4,5],
-        am_pm: 0,
+        am_pm: 1,
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },
       {
         name: "Tango",
@@ -105,7 +115,9 @@ export const store = new Vuex.Store({
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },
       {
         name: "Dylan",
@@ -121,7 +133,9 @@ export const store = new Vuex.Store({
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },
       {
         name: "Francois",
@@ -137,7 +151,9 @@ export const store = new Vuex.Store({
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },
       {
         name: "Florence",
@@ -153,7 +169,9 @@ export const store = new Vuex.Store({
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
       },  
       {
         name: "Bowie",
@@ -169,7 +187,27 @@ export const store = new Vuex.Store({
         skip_days: [],
         add_days: [],
         picked_up: false,
-        dropped_off: false
+        dropped_off: false,
+        group_walk_rate: 25,
+        double_group_walk_rate: 40
+      },
+      {
+        name: "Belle",
+        img: "",
+        owner: ["Name"],
+        email: [""],
+        address: "",
+        phone: [],
+        zip: 94134,
+        door_code: [""],
+        repeating_schedule: [1,2,3,4],
+        am_pm: 1,
+        skip_days: [],
+        add_days: [],
+        picked_up: false,
+        dropped_off: false,
+        group_walk_rate: 27,
+        double_group_walk_rate: 50
       }                         
     ]
   },
@@ -214,6 +252,9 @@ export const store = new Vuex.Store({
       }
       console.log(arr);
       return arr;
+    },
+    getAllDogs: state => {
+      return state.dogs;
     }
   },
   actions: {

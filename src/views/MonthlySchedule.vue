@@ -1,6 +1,9 @@
 <template>
 	<div class="innerPage">
-		<br>
+		<div id="daySelected">
+			<h3>{{ getDayOfWeek(currDate) }}</h3>
+			<md-input type="date" name="date" :value="daySelected"></md-input>
+		</div>
 		<ScheduleNav></ScheduleNav>
 		<div id="monthSelected">
 			<select v-model="monthSelected[0]" :value="monthSelected[1]">
@@ -28,7 +31,7 @@
 				</div>
 			</div>
 		</div>
-		<Nav></Nav>
+		<Nav menu='schedule'></Nav>
 	</div>
 </template>
 
@@ -171,6 +174,8 @@
 					date.setDate(date.getDate() + 1);
 				}
 				return days;
+				console.log("days");
+				console.log(days);
 			},
 			isCurrentDay(day){
 				let boolean = this.currDate.toLocaleDateString() == day.toLocaleDateString() ? true : false;
