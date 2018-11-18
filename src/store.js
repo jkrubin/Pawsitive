@@ -27,7 +27,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Rochi",
@@ -39,13 +41,15 @@ export const store = new Vuex.Store({
         zip: 94131,
         door_code: [],
         repeating_schedule: [1,2,3,4,5],
-        am_pm: 2,
+        am_pm: 0,
         skip_days: [],
         add_days: [],
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Han",
@@ -63,7 +67,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Leia",
@@ -81,7 +87,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Miski",
@@ -99,7 +107,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Tango",
@@ -117,7 +127,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Dylan",
@@ -135,7 +147,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Francois",
@@ -153,7 +167,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Florence",
@@ -171,7 +187,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },  
       {
         name: "Bowie",
@@ -189,7 +207,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 25,
-        double_group_walk_rate: 40
+        double_group_walk_rate: 40,
+        invoiced: false,
+        paid: false
       },
       {
         name: "Belle",
@@ -207,7 +227,9 @@ export const store = new Vuex.Store({
         picked_up: false,
         dropped_off: false,
         group_walk_rate: 27,
-        double_group_walk_rate: 50
+        double_group_walk_rate: 50,
+        invoiced: false,
+        paid: false
       }                         
     ]
   },
@@ -223,6 +245,12 @@ export const store = new Vuex.Store({
   	},
     setClient(state, payload){
       state.client = payload;
+    },
+    toggleInvoiced(state, payload){
+      state.dogs[payload].invoiced = !state.dogs[payload].invoiced;
+    },
+    togglePaid(state, payload){
+      state.dogs[payload].paid = !state.dogs[payload].paid;
     }
   },
   getters: {

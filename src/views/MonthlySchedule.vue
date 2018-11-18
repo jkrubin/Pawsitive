@@ -167,12 +167,16 @@
 			},
 			getDaysInMonth(month, year) {
 				// let date = new Date(year, month, 1),
-				let date = new Date(),
+				let y = new Date().getFullYear(),
+					m = new Date().getMonth(),
+					date = new Date(y, m, 1),
 					days = [];
-				while (date.getMonth() === month) {
+
+				while (date.getMonth() === m) {
 					days.push(new Date(date));
 					date.setDate(date.getDate() + 1);
 				}
+
 				return days;
 				console.log("days");
 				console.log(days);

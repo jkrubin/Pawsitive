@@ -19,25 +19,21 @@
 	#scheduleButtons {
 		margin: auto;
 		display: flex;
-		padding: 0 25%;
 	}
 	#scheduleButtons {
 		justify-content: space-between;
-		margin-bottom: 25px;
+		margin-bottom: 0px;
 	}
 	#scheduleButtons button {
 		background-color: white;
-		border: 1px solid black;
-		border-radius: 5px;
-		transform: scale(0.9);
+		border: none;
 		transition: 0.5s all;
 		cursor: pointer;
-	}
-	#scheduleButtons button:hover {
-		transform: scale(1.2);
+		width: calc(100%/3);
+		height: 25px;
 	}
 	#scheduleButtons button.selected {
 		background-color: #FFCC00 !important;
-		transform: scale(1.2);
+		z-index: 2;
 	}
 </style>

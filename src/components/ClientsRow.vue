@@ -4,6 +4,7 @@
 		<td class="dog-name">{{ dog.name }}</td>
 		<td class="modalToggle" @click="modalToggle">+</td>
 		<table class="infoModal" v-if="modalShow == true">
+			<tr class="imgContainer">{{ dog.thumb }}</tr>
 			<tr class="nameContainer">
 				<md-field v-for="ownerName in dog.owner">
 					<label>Name</label>
@@ -81,6 +82,12 @@
 		height: 80px;
 		width: 100%;
 		display: flex;
+	}
+	tr.client-row:nth-of-type(even){
+		background-color: white;
+	}
+	tr.client-row:nth-of-type(odd){
+		background-color: #f1f1f1;
 	}
 	td.dog-thumb {
 		width: 50%;

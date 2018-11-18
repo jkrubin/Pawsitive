@@ -1,5 +1,19 @@
 <template>
-	<div>
+	<div id="billing">
+		<select>
+			<option>January</option>
+			<option>February</option>
+			<option>March</option>
+			<option>April</option>
+			<option>May</option>
+			<option>June</option>
+			<option>July</option>
+			<option>August</option>
+			<option>September</option>
+			<option>October</option>
+			<option>November</option>
+			<option>December</option>
+		</select>
 		<h2>Month Total ${{ getMonthTotalIncome() }}</h2>
 		<h3>12 Month Projection ${{ getMonthTotalIncome() * 12 }}</h3>
 		<table>
@@ -15,14 +29,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="(dog, index) in dogs">
+				<tr v-for="(dog, index) in dogs" :class="{ invoiced: isInvoiced(index), paid: isPaid(index) }">
 					<td>{{ index+1 }}</td>
 					<td>{{ dog.name }}</td>
 					<td>{{ getTotalDays(index) }}</td>
 					<td>${{ getRate(index) }}</td>
 					<td>${{ getTotalBill(getTotalDays(index), index) }}</td>
-					<td><input type="checkbox"></td>
-					<td><input type="checkbox"></td>
+					<td><input v-if="dog.paid == false" type="checkbox" @click="invoiced(index)"></td>
+					<td><input v-if="dog.invoiced == true" type="checkbox" @click="paid(index)"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -82,6 +96,18 @@
 				}
 
 				return rate
+			},
+			isInvoiced(index){
+				return this.dogs[index].invoiced == true ? true : false;
+			},
+			isPaid(index){
+				return this.dogs[index].paid == true ? true : false;
+			},
+			invoiced(index){
+				this.$store.commit("toggleInvoiced", index);
+			},
+			paid(index){
+				this.$store.commit("togglePaid", index);
 			}
 		},
 		data(){
@@ -93,11 +119,45 @@
 	}
 </script>
 
-<style>
+<style scoped>
+	#billing {
+		margin-bottom: 30px;
+	}
+	#billing h2,
+	#billing h3,
+	#billing select {
+		text-align: center;
+	}
+	#billing select {
+		margin: auto;
+		display: block;
+		margin-top: 15px;
+	}
 	.invoiced {
 		background-color: #FFCC00 !important;
 	}
 	.paid {
 		background-color: #00a0ff !important;
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		display: table;
+	}
+	thead {
+		background-color: #FFCC00;
+	}
+	tbody tr {
+		height: 60px;
+	}
+	tbody tr:nth-of-type(even) {
+		background-color: white;
+	}
+	tbody tr:nth-of-type(odd){
+		background-color: #f1f1f1;
+	}
+	td {
+		text-align: center;
+		margin: auto;
 	}
 </style>

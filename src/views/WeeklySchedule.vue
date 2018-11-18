@@ -15,24 +15,30 @@
 			</div>
 		</div>
 		<div id="dogContainer">
-			<div v-for="index in 5" :key="index" class="dogInnerContainer">
-				<h3>Mrn</h3>
-				<div id="morningDogs" class="dogBoxContainer" :class="{ currentDate: isCurrentDate(index-1) }">
-					<div class="dogBox">
-						<h3>{{ getDogCountByDay($store.getters.getMorningDogs, index) }}</h3>
-						<hr>
-						<div v-for="dog in $store.getters.getMorningDogs">
-							<h4>{{ filterDogsByDay(dog, index) }}</h4>
+			<h3 class="timeHeader">Morning</h3>
+			<div>
+				<div v-for="index in 5" :key="index" class="dogInnerContainer">
+					<div id="morningDogs" class="dogBoxContainer" :class="{ currentDate: isCurrentDate(index-1) }">
+						<div class="dogBox">
+							<h3>{{ getDogCountByDay($store.getters.getMorningDogs, index) }}</h3>
+							<hr>
+							<div v-for="dog in $store.getters.getMorningDogs">
+								<h4 class="weeklyDogName">{{ filterDogsByDay(dog, index) }}</h4>
+							</div>
 						</div>
 					</div>
 				</div>
-				<h3>Aft</h3>
-				<div id="afternoonDogs" class="dogBoxContainer" :class="{ currentDate: isCurrentDate(index-1) }">
-					<div class="dogBox">
-						<h3>{{ getDogCountByDay($store.getters.getAfternoonDogs, index) }}</h3>
-						<hr>
-						<div v-for="dog in $store.getters.getAfternoonDogs">
-							<h4>{{ filterDogsByDay(dog, index) }}</h4>
+			</div>
+			<h3 class="timeHeader">Afternoon</h3>
+			<div>
+				<div v-for="index in 5" :key="index" class="dogInnerContainer">
+					<div id="afternoonDogs" class="dogBoxContainer" :class="{ currentDate: isCurrentDate(index-1) }">
+						<div class="dogBox">
+							<h3>{{ getDogCountByDay($store.getters.getAfternoonDogs, index) }}</h3>
+							<hr>
+							<div v-for="dog in $store.getters.getAfternoonDogs">
+								<h4 class="weeklyDogName">{{ filterDogsByDay(dog, index) }}</h4>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -191,7 +197,7 @@
 <style>
 	#timeBoxContainer,
 	#dogBoxContainer,
-	#dogContainer {
+	#dogContainer > div {
 		display: flex;
 	}
 	#dogContainer {
@@ -212,6 +218,10 @@
 	.dogBox {
 		flex-flow: column;
 		flex-grow: 1;
+		width: 100%;
+	}
+	.dogInnerContainer {
+		width: 20%;
 	}
 	.dogInnerContainer:nth-of-type(odd) .dogBox {
 		background-color: #Fafafa;
@@ -219,6 +229,11 @@
 	.timebox hr {
 		color: white;
 		background-color: white;
+	}
+	h3.timeHeader {
+		text-align: center;
+		margin: 0 auto;
+		background-color: #FFCC00;
 	}
 	#daySelected {
 		display: flex;
@@ -229,7 +244,16 @@
 		margin: auto;
 		text-align: center;
 	}
+	/*.dogInnerContainer < .currentDate,*/
 	.currentDate {
-		background-color: #FFCC00 !important;
+		border: 2px solid #FFCC00 !important;
+		border-top: 2px solid transparent !important;
+		border-bottom: 2px solid transparent !important;
+	}
+	.currentDate hr {
+		border-color: transparent;
+	}
+	.weeklyDogName {
+		font-weight: 500;
 	}
 </style>

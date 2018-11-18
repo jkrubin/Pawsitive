@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="clients">
 		<table>
 			<ClientRow v-for="dog in dogs" :dog="dog"></ClientRow>
 		</table>
@@ -31,5 +31,6 @@
 	table {
 		display: block;
 		width: 100%;
+		margin-bottom: 25px;
 	}
 </style>
